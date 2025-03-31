@@ -87,4 +87,47 @@ class Vetor {
         
        System.out.println("\nFim da lista!!");
     }
+
+    /*public void ordenaPreimum(){
+        int i;
+        for (i=size-1; i > 0 && A[i].getTarifaPremium() < n.getTarifaPremium();i--) {
+            A[i+1] = A[i];
+            for(int j=0;j<4;j++){
+              A[i].mostraPais();
+            }
+        }
+    }*/
+    public void ordenaBasicaCrescente (){
+        // inicia o Bubble Sort
+        for(int j=0; j<size; j++)
+            for(int i=1; i<size-j;i++)
+                if(A[i-1].getTarifaBasica()>A[i].getTarifaBasica()){
+                //troca os elementos
+                Pais temp = A[i];
+                A[i]=A[i-1];
+                A[i-1] = temp;
+                }
+        for(int i =0;i<size;i++){
+            A[i].mostraPais();
+        }   
+    }
+
+    public void ordenaPremiumDecrescente(){
+        // inicia o Bubble Sort
+        for(int j=0; j<size-1; j++){
+            for(int i=0; i<size-1-j;i++){
+                if(A[i].getTarifaPremium()<A[i+1].getTarifaPremium()){
+                    //troca os elementos
+                    Pais temp = A[i];
+                    A[i]=A[i+1];
+                    A[i+1]=temp;
+                    //A[i-1].getTarifaPremium()= A[i].getTarifaPremium();
+                }   
+            }
+        }
+        for(int i =0;i<4;i++){
+            A[i].mostraPais();
+        }
+
+    }
 }
