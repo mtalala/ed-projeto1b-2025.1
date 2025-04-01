@@ -24,10 +24,12 @@ public class Main {
                     lerArquivo.show();
                     break;
                 case 2:
-
+                    Vetor ordenaPremium = LeitorArquivo.carregarArquivo("Netflix.txt");
+                    ordenaPremium.ordenaPremiumDecrescente();
                     break;
-                case 3:
-
+                 case 3:
+                    Vetor ordenaBasica= LeitorArquivo.carregarArquivo("Netflix.txt");
+                    ordenaBasica.ordenaBasicaCrescente();
                     break;
                 case 4:
 
