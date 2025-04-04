@@ -87,16 +87,7 @@ class Vetor {
         
        System.out.println("\nFim da lista!!");
     }
-
-    /*public void ordenaPreimum(){
-        int i;
-        for (i=size-1; i > 0 && A[i].getTarifaPremium() < n.getTarifaPremium();i--) {
-            A[i+1] = A[i];
-            for(int j=0;j<4;j++){
-              A[i].mostraPais();
-            }
-        }
-    }*/
+    
     public void ordenaBasicaCrescente (){
         // inicia o Bubble Sort
         for(int j=0; j<size; j++)
@@ -121,13 +112,41 @@ class Vetor {
                     Pais temp = A[i];
                     A[i]=A[i+1];
                     A[i+1]=temp;
-                    //A[i-1].getTarifaPremium()= A[i].getTarifaPremium();
                 }   
             }
         }
-        for(int i =0;i<4;i++){
+        for(int i =0;i<5;i++){
             A[i].mostraPais();
         }
+    }
+
+    // Método que compara as tarifas de dois países a partir de suas siglas
+    public void compararTarifasEntrePaises(String sigla1, String sigla2) {
+        // Busca as posições (índices) das siglas informadas no vetor
+        int index1 = search(sigla1);
+        int index2 = search(sigla2);
+
+        // Verifica se algum dos países não foi encontrado
+        if (index1 == -1 || index2 == -1) {
+            if (index1 == -1)
+                System.out.println("País com sigla '" + sigla1 + "' não encontrado.");
+            if (index2 == -1)
+                System.out.println("País com sigla '" + sigla2 + "' não encontrado.");
+        } else {
+            // Recupera os objetos Pais correspondentes
+            Pais p1 = A[index1];
+            Pais p2 = A[index2];
+
+            System.out.println("\n--- Comparação de Tarifas ---");
+            System.out.printf("%-10s %-20s %-10s %-10s %-10s%n", "Sigla", "País", "Básica", "Standard", "Premium"); // formatar as informações
+            System.out.printf("%-10s %-20s %-10.2f %-10.2f %-10.2f%n", p1.sigla, p1.pais, p1.getTarifaBasica(), p1.getTarifaStandard(), p1.getTarifaPremium());
+            System.out.printf("%-10s %-20s %-10.2f %-10.2f %-10.2f%n", p2.sigla, p2.pais, p2.getTarifaBasica(), p2.getTarifaStandard(), p2.getTarifaPremium());
+        }
+    }
+
+    public void mediaTarifaBasica(){
+
 
     }
+
 }

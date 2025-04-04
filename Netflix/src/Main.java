@@ -14,20 +14,38 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int op;
         do{
-            System.out.println("Escolha sua opção: ");
+            System.out.println("\nEscolha sua opção: ");
             op = sc.nextInt();
             switch (op){
                 case 1:
                     Vetor lerArquivo = LeitorArquivo.carregarArquivo("Netflix.txt");
                     lerArquivo.show();
+                    break;
                 case 2:
                     Vetor ordenaPremium = LeitorArquivo.carregarArquivo("Netflix.txt");
                     ordenaPremium.ordenaPremiumDecrescente();
+                    break;
+
                 case 3:
                     Vetor ordenaBasica= LeitorArquivo.carregarArquivo("Netflix.txt");
                     ordenaBasica.ordenaBasicaCrescente();
+                    break;
                     
                 case 4:
+                    Vetor comparaPais= LeitorArquivo.carregarArquivo("Netflix.txt");
+                    Scanner entrada = new Scanner(System.in);
+
+                    String sigla1;
+                    String sigla2;
+
+                    System.out.println("Digite a sigla do primeiro país que deseja comparar");
+                    sigla1 = entrada.nextLine();
+                    System.out.println("Digite a sigla do segundo país que deseja comparar");
+                    sigla2 = entrada.nextLine();
+
+                    comparaPais.compararTarifasEntrePaises(sigla1,sigla2);
+
+                    break;
                 case 5:
                 
                 default:
