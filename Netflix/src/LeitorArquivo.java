@@ -5,7 +5,7 @@ public class LeitorArquivo{
         
             Vetor lista = new Vetor(100);
 
-            FileReader arq = new FileReader("C:\\Users\\carol\\OneDrive - Instituto Presbiteriano Mackenzie\\Semestre_03\\Estrutura_Dados\\ed2-projeto-1b-1\\Netflix\\src\\Netflix.txt");
+            FileReader arq = new FileReader("C:\\Users\\carol\\OneDrive - Instituto Presbiteriano Mackenzie\\Semestre_03\\Estrutura_Dados\\projeto1b-ed1-2025.01-2\\Netflix\\src\\Netflix.txt");
             BufferedReader br = new BufferedReader(arq);
             String linha = null;
             linha = br.readLine();  

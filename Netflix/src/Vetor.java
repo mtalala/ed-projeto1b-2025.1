@@ -87,8 +87,53 @@ class Vetor {
         
        System.out.println("\nFim da lista!!");
     }
+
+    /*public void ordenaPreimum(){
+        int i;
+        for (i=size-1; i > 0 && A[i].getTarifaPremium() < n.getTarifaPremium();i--) {
+            A[i+1] = A[i];
+            for(int j=0;j<4;j++){
+              A[i].mostraPais();
+            }
+        }
+    }*/
+
+    public void ordenaBasicaCrescente() {
+        //utilizando o merge sort
+        if (size <= 1) return;
+        Pais[] temp = new Pais[size];
     
-    public void ordenaBasicaCrescente (){
+        for (int m = 1; m < size; m *= 2) {
+            for (int i = 0; i < size - m; i += 2 * m) {
+                int inicio = i;
+                int meio = i + m - 1;
+                int fim = Math.min(i + 2 * m - 1, size - 1);
+    
+                // merge do inicio ao meio e do meio ao fim
+                int p1 = inicio, p2 = meio + 1, k = inicio;
+                while (p1 <= meio && p2 <= fim) {
+                    if (A[p1].getTarifaBasica() <= A[p2].getTarifaBasica()) {
+                        temp[k++] = A[p1++];
+                    } else {
+                        temp[k++] = A[p2++];
+                    }
+                }
+                while (p1 <= meio) temp[k++] = A[p1++];
+                while (p2 <= fim) temp[k++] = A[p2++];
+    
+                for (k = inicio; k <= fim; k++) {
+                    A[k] = temp[k];
+                }
+            }
+        }
+    
+        // Mostra resultado
+        for (int i = 0; i < size; i++) {
+            A[i].mostraPais();
+        }
+    }
+    
+    /*public void ordenaBasicaCrescente (){
         // inicia o Bubble Sort
         for(int j=0; j<size; j++)
             for(int i=1; i<size-j;i++)
@@ -101,7 +146,7 @@ class Vetor {
         for(int i =0;i<size;i++){
             A[i].mostraPais();
         }   
-    }
+    }*/
 
     public void ordenaPremiumDecrescente(){
         // inicia o Bubble Sort
@@ -112,16 +157,18 @@ class Vetor {
                     Pais temp = A[i];
                     A[i]=A[i+1];
                     A[i+1]=temp;
+                    //A[i-1].getTarifaPremium()= A[i].getTarifaPremium();
                 }   
             }
         }
         for(int i =0;i<5;i++){
             A[i].mostraPais();
         }
+
     }
 
-    // Método que compara as tarifas de dois países a partir de suas siglas
-    public void compararTarifasEntrePaises(String sigla1, String sigla2) {
+     // Método que compara as tarifas de dois países a partir de suas siglas
+     public void compararTarifasEntrePaises(String sigla1, String sigla2) {
         // Busca as posições (índices) das siglas informadas no vetor
         int index1 = search(sigla1);
         int index2 = search(sigla2);
@@ -144,9 +191,27 @@ class Vetor {
         }
     }
 
-    public void mediaTarifaBasica(){
+    public void estatisticaTarifas(){
+        double somaBasica = 0;
+        double somaStandard = 0;
+        double somaPremium = 0;
 
+        for (int i =0; i < size; i++){
+            Pais p = A[i];
+            somaBasica += p.getTarifaBasica();
+            somaStandard += p.getTarifaStandard();
+            somaPremium += p.getTarifaPremium();
+        }
+        
+        double divisaoBasica = somaBasica/size;
+        double divisaoStandard = somaStandard/size;
+        double divisaoPremium = somaPremium/size;
 
+        System.out.println("\n--- Estatísticas das tarifas ---");   
+        System.out.printf("- Básica: R$ %.2f\n", divisaoBasica);
+        System.out.printf("- Standard: R$ %.2f\n", divisaoStandard);
+        System.out.printf("- Premium: R$ %.2f\n", divisaoPremium);
+    
     }
 
 }
