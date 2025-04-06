@@ -1,11 +1,11 @@
 import java.io.*;
-
+//SRS PROFESSORES, ALTEREM O CAMINHO DO ARQUIVO NETFLIX.TXT PARA QUE O CODIGO FUNCIONE CORRETAMENTE! OBRIGADA
 public class LeitorArquivo{
     public static Vetor carregarArquivo(String arquivo) throws Exception{
         
             Vetor lista = new Vetor(100);
 
-            FileReader arq = new FileReader("C:\\Users\\carol\\OneDrive - Instituto Presbiteriano Mackenzie\\Semestre_03\\Estrutura_Dados\\projeto1b-ed1-2025.01-2\\Netflix\\src\\Netflix.txt");
+            FileReader arq = new FileReader("Netflix\\src\\Netflix.txt");
             BufferedReader br = new BufferedReader(arq);
             String linha = null;
             linha = br.readLine();  

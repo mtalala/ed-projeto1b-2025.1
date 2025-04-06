@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//SRS PROFESSORES, ALTEREM O CAMINHO DO ARQUIVO NETFLIX.TXT PARA QUE O CODIGO FUNCIONE CORRETAMENTE! OBRIGADA
 public class Main {
     public static void main(String[] args) throws Exception {
         
@@ -51,7 +51,7 @@ public class Main {
 
                     break;
                 case 6: 
-                
+                System.out.println("Link para o vídeo de apresentação do projeto: https://youtu.be/Fw0JwOl3wUY?si=rcA8ol-WL07vDXPY");
                     break;
                 default:
             }
